@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: validateOrder
+          binder: kafka
+          consumer:
+            headerMode: raw
+          group: orderGroup
+      kafka:
+        binder:
+          brokers: localhost
+          zkNodes: localhost
+server:
+  port: 9002

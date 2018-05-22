@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: order
+          binder: kafka
+          content-type: application/json
+          group: orderGroup
+      kafka:
+          binder:
+            brokers: localhost
+            zkNodes: localhost
+            headers:
+              - goodsType
+server:
+  port: 9000
